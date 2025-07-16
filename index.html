@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>日向坂46鶴崎仁香がおすすめ！世界遺産診断!</title>
+
+    <meta name="theme-color" content="#3a5a40"/>
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="icons/icon-192x192.png">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app-container">
+        <div id="start-screen" class="screen active">
+            <div class="start-content">
+                <h1>日向坂46鶴崎仁香がおすすめ！世界遺産診断!</h1>
+                <p>5つの質問に答えて、<br>あなたにぴったりの旅先を見つけよう。</p>
+                <button id="start-button" class="btn">診断をはじめる</button>
+            </div>
+        </div>
+
+        <div id="quiz-screen" class="screen">
+            <div id="progress-bar-container">
+                <div id="progress-bar"></div>
+            </div>
+            <div id="question-container">
+                </div>
+        </div>
+
+        <div id="result-screen" class="screen">
+            <div class="result-content">
+                <h2>あなたへのおすすめは…</h2>
+                <div class="result-card">
+                    <img id="result-image" src="" alt="おすすめの世界遺産">
+                    <h3 id="result-name"></h3>
+                    <p id="result-description"></p>
+                </div>
+                <button id="restart-button" class="btn">もう一度診断する</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(reg => console.log('Service Worker: Registered'))
+                    .catch(err => console.error('Service Worker: Registration Failed', err));
+            });
+        }
+    </script>
+</body>
+</html>
